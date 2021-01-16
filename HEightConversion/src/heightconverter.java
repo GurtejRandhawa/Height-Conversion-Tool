@@ -90,12 +90,20 @@ public class heightconverter {
 		CentimetersTextField.setColumns(10);
 		
 		JButton ClearBTN = new JButton("Clear");
-		ClearBTN.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				FeetTextField.setText("");
-				InchesTextField.setText("");
-				CentimetersTextField.setText("");
-			}
+		ClearBTN.addActionListener(new ActionListener()
+	         {
+			try
+				{
+					double feet,inches,centimeters;
+					feet=Double.parseDouble(FeetTextField.getText());
+					inches=Double.parseDouble(InchesTextField.getText());
+					centimeters=(feet*12+inches)*2.54;
+					CentimetersTextField.setText(String.valueOf(centimeters));
+				}
+				catch(Exception r)
+				{
+					JOptionPane.showMessageDialog(null, "Please enter the required information");
+				}
 		});
 		ClearBTN.setForeground(Color.WHITE);
 		ClearBTN.setBackground(Color.MAGENTA);
